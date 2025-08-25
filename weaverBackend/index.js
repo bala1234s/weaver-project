@@ -108,8 +108,8 @@ app.get("/api/customOrders", async (req, res) => {
         res.status(500).json({ error: "Failed to fetch custom orders" });
     }
 });
-// Update order status by ID (no separate CustomOrder model)
-app.put("/api/orders/:id", async (req, res) => {
+// Update order status by ID 
+app.put("/api/customOrders/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const { status } = req.body;
@@ -147,23 +147,23 @@ app.get("/api/dresses", async (req, res) => {
     }
 });
 
-// Custom Order Schema
 const customOrderSchema = new mongoose.Schema({
     dressType: String,
     color: String,
     borderColor: String,
     size: String,
+    designPattern: String,
+    price: Number,
+    laborCharge: Number,
     customerName: String,
     customerEmail: String,
     customerPhone: String,
-    status: { type: String, default: "Pending" }, // optional
-    createdAt: { type: Date, default: Date.now }
+    status: { type: String, default: "Pending" },
+    createdAt: { type: Date, default: Date.now },
 });
 
 const CustomOrder = mongoose.model("CustomOrder", customOrderSchema);
 
-
-// Route to create custom order
 app.post("/api/customOrders", async (req, res) => {
     try {
         const order = new CustomOrder(req.body);
@@ -174,5 +174,6 @@ app.post("/api/customOrders", async (req, res) => {
         res.status(500).json({ error: "Failed to place order" });
     }
 });
+
 
 

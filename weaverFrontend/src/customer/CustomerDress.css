@@ -1,0 +1,76 @@
+.customer-dress-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.customer-dress-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.customer-dress-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.customer-dress-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.customer-dress-form select,
+.customer-dress-form input {
+    padding: 8px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.customer-dress-form select:focus,
+.customer-dress-form input:focus {
+    border-color: #2c3e50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.3);
+}
+
+.price-display {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.place-order-btn {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.place-order-btn:hover {
+    background-color: #1f2a38;
+}
+
+.order-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    color: #16a085;
+}

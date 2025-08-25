@@ -1,0 +1,151 @@
+/* Global */
+.home-container {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #fdfdfd;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 4rem 2rem;
+    /* border-radius: 0 0 30px 30px; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn.primary {
+    background: #fff;
+    color: #2575fc;
+    font-weight: bold;
+}
+
+.btn.primary:hover {
+    background: #ebebeb;
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 2px solid #fff;
+    color: white;
+    font-weight: bold;
+}
+
+.btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Products Section */
+.products {
+    padding: 3rem 2rem;
+    background: #fafafa;
+}
+
+.products h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+    text-align: left;
+}
+
+.product-info h4 {
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Customize Section */
+.customize {
+    padding: 3rem 2rem;
+    
+}
+.customize button{
+    border: 2px solid gray;
+}
+.customize h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.customize p {
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer a {
+    color: #ffdd57;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

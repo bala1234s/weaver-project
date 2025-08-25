@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import axios from "axios";
+import "./CustomerHome.css"; 
+
 
 const CustomerHome = () => {
   const [orders, setOrders] = useState([]);
@@ -25,83 +27,58 @@ const CustomerHome = () => {
         console.error(err);
       }
     };
-
     fetchOrders();
   }, []);
 
   return (
-    <div style={styles.container}>
-      <h1>Customer Dashboard</h1>
-      <p>Welcome! Place custom orders and track them below.</p>
+    <div className="customer-container">
+      <h1 className="text-center mb-3">Customer Dashboard</h1>
+      <p className="text-center">Welcome! Place custom orders and track them below.</p>
 
-      <Link to="/customer/customDress">
-        <button style={styles.button}>Customize Your Dress</button>
-      </Link>
+      <div className="text-center mb-4">
+        <Link to="/customer/customDress">
+          <button className="btn btn-primary">Customize Your Dress</button>
+        </Link>
+      </div>
 
-      <h2 style={{ marginTop: "2rem" }}>My Orders</h2>
+      <h2 className="mt-4 mb-3">My Orders</h2>
+
       {orders.length === 0 ? (
-        <p>No orders yet.</p>
+        <p className="text-center">No orders yet.</p>
       ) : (
-        <table style={styles.table}>
-          <thead>
-            <tr>
-              <th>Product Type</th>
-              <th>Color</th>
-              <th>Border Color</th>
-              <th>Size</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((o) => (
-              <tr key={o._id}>
-                <td>{o.dressType}</td>
-                <td>{o.color}</td>
-                <td>{o.borderColor}</td>
-                <td>{o.size}</td>
-                <td>{o.status || "Pending"}</td>
+        <div className="table-responsive">
+          <table className="table table-bordered table-striped table-hover">
+            <thead className="table-dark">
+              <tr>
+                <th>Product Type</th>
+                <th>Color</th>
+                <th>Border Color</th>
+                <th>Size</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {orders.map((o) => (
+                <tr key={o._id}>
+                  <td>{o.dressType}</td>
+                  <td>{o.color}</td>
+                  <td>{o.borderColor}</td>
+                  <td>{o.size}</td>
+                  <td>
+                    <span className={`badge ${o.status === "Pending" ? "bg-warning text-dark" : "bg-success"}`}>
+                      {o.status || "Pending"}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
 
-      {/* Nested routes render here */}
       <Outlet />
     </div>
   );
-};
-
-const styles = {
-  container: {
-    padding: "2rem",
-    fontFamily: "Arial, sans-serif",
-    textAlign: "center",
-  },
-  button: {
-    margin: "1rem 0",
-    padding: "0.7rem 1.5rem",
-    border: "none",
-    borderRadius: "5px",
-    backgroundColor: "#2c3e50",
-    color: "#fff",
-    cursor: "pointer",
-  },
-  table: {
-    width: "100%",
-    maxWidth: "700px",
-    margin: "1rem auto",
-    borderCollapse: "collapse",
-  },
-  th: {
-    border: "1px solid #ccc",
-    padding: "0.5rem",
-    backgroundColor: "#f2f2f2",
-  },
-  td: {
-    border: "1px solid #ccc",
-    padding: "0.5rem",
-  },
 };
 
 export default CustomerHome;

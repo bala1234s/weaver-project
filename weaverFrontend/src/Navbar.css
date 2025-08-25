@@ -1,0 +1,92 @@
+/* Navbar container */
+.navbar {
+    background-color: #2d3748;
+    /* Dark gray */
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.navbar-logo a {
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.navbar-logo a:hover {
+    color: #facc15;
+    /* Yellow */
+}
+
+/* Links container */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Normal links */
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #facc15;
+    /* Yellow */
+}
+
+/* Buttons */
+.logout-btn,
+.login-btn,
+.signup-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+/* Specific buttons */
+.logout-btn {
+    background-color: #e53e3e;
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: #c53030;
+}
+
+.login-btn {
+    background-color: #38a169;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.login-btn:hover {
+    background-color: #2f855a;
+}
+
+.signup-btn1 {
+    background-color: #3182ce;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.signup-btn1:hover {
+    background-color: #2b6cb0;
+}

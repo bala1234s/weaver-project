@@ -1,21 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./Navbar.css"; 
+import { FaRegUserCircle } from "react-icons/fa";
 
 function Navbar() {
     const navigate = useNavigate();
     const [role, setRole] = useState(null);
 
-    // Function to update role from localStorage
+    // Update role from localStorage
     const updateRole = () => {
         const storedUser = JSON.parse(localStorage.getItem("user"));
         setRole(storedUser?.role || null);
     };
 
     useEffect(() => {
-        // Run on mount
         updateRole();
 
-        // Listen for changes to localStorage from other tabs/windows
+        // Listen to storage changes (other tabs/windows)
         window.addEventListener("storage", updateRole);
 
         return () => {
@@ -23,34 +24,52 @@ function Navbar() {
         };
     }, []);
 
+    // ✅ Fix: re-check localStorage whenever component re-renders
+    useEffect(() => {
+        updateRole();
+    }, [localStorage.getItem("user")]);
+
     const handleLogout = () => {
-        localStorage.clear();
+        localStorage.removeItem("user");
         setRole(null);
         navigate("/");
     };
 
     return (
-        <div style={{ padding: "1rem", background: "#eee" }}>
-            <Link to="/" style={{ marginRight: "1rem" }}>Home</Link>
+        <nav className="navbar">
+            {/* Left: Logo */}
+            <div className="navbar-logo">
+                <Link to="/">WeaveConnect</Link>
+            </div>
 
-            {role ? (
-                <button
-                    onClick={handleLogout}
-                    style={{
-                        marginLeft: "1rem",
-                        padding: "0.3rem 0.6rem",
-                        cursor: "pointer"
-                    }}
-                >
-                    Logout
-                </button>
-            ) : (
-                <>
-                    <Link to="/login" style={{ marginRight: "1rem" }}>Login</Link>
-                    <Link to="/signup">Signup</Link>
-                </>
-            )}
-        </div>
+            {/* Right: Links */}
+            <div className="navbar-links">
+                <Link to="/">Home</Link>
+
+                {role === "weaver" && (
+                    <Link to="/weaver">Admin</Link>
+                )}
+                {role === "customer" && (
+                    <Link to="/customer">My Orders</Link>
+                )}
+
+                {role ? (
+                    <button onClick={handleLogout} className="logout-btn">
+                        Logout
+                    </button>
+                ) : (
+                    <>
+                        <Link to="/login" className="login-btn">
+                            Login
+                        </Link>
+                        <Link to="/signup" className="signup-btn1">
+                            Signup
+                        </Link>
+                        
+                    </>
+                )}
+            </div>
+        </nav>
     );
 }
 

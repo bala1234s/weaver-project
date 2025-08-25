@@ -1,0 +1,19 @@
+.customer-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+.btn-primary {
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
