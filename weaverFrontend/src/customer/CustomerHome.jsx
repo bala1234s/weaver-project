@@ -21,7 +21,7 @@ const CustomerHome = () => {
     const fetchOrders = async () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
-        const res = await axios.get(`http://localhost:3001/api/orders?email=${user.email}`);
+        const res = await axios.get(`https://weaver-project-backend.vercel.app/api/orders?email=${user.email}`);
         setOrders(res.data);
       } catch (err) {
         console.error(err);

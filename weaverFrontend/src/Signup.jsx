@@ -14,7 +14,7 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3001/auth/signup", {
+            await axios.post("https://weaver-project-backend.vercel.app/auth/signup", {
                 name,
                 email,
                 password,
@@ -42,6 +42,7 @@ const Signup = () => {
                         className="signup-input"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                     <input
                         type="email"
@@ -49,6 +50,7 @@ const Signup = () => {
                         className="signup-input"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                     <input
                         type="password"
@@ -56,6 +58,7 @@ const Signup = () => {
                         className="signup-input"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                     <input
                         type="text"
@@ -63,6 +66,7 @@ const Signup = () => {
                         className="signup-input"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
+                        required
                     />
 
                     <button type="submit" className="signup-btn">

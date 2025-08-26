@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post("http://localhost:3001/auth/login", {
+            const res = await axios.post("https://weaver-project-backend.vercel.app/auth/login", {
                 email,
                 password,
             });
@@ -40,7 +40,9 @@ const Login = () => {
                     placeholder="Email Address"
                     className="login-input"
                     value={email}
+                    
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
 
                 <input
@@ -49,6 +51,7 @@ const Login = () => {
                     className="login-input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                 />
 
                 <button className="login-btn" onClick={handleLogin}>
@@ -56,7 +59,7 @@ const Login = () => {
                 </button>
 
                 <p className="signup-text">
-                    Don’t have an account? <a href="/signup">Sign up</a>
+                    Don’t have an account? <Link to="/signup">sign up</Link>
                 </p>
             </div>
         </div>

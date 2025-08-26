@@ -10,6 +10,7 @@ import CustomerHome from './customer/CustomerHome';
 import WeaverHome from './weaver/WeaverHome';
 import Navbar from './Navbar';
 import CustomerDress from './customer/CustomerDress';
+import About from './about';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/about" element={<About />} />
 
         {/* Customer routes */}
         <Route path="/customer" element={<CustomerHome />}>

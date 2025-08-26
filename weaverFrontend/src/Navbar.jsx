@@ -24,7 +24,7 @@ function Navbar() {
         };
     }, []);
 
-    // ✅ Fix: re-check localStorage whenever component re-renders
+   
     useEffect(() => {
         updateRole();
     }, [localStorage.getItem("user")]);
@@ -45,6 +45,7 @@ function Navbar() {
             {/* Right: Links */}
             <div className="navbar-links">
                 <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
 
                 {role === "weaver" && (
                     <Link to="/weaver">Admin</Link>

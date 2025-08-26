@@ -5,7 +5,7 @@ const WeaverDashboard = () => {
   const [orders, setOrders] = useState([]);
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/api/customOrders"); // fetch all orders
+      const res = await axios.get("https://weaver-project-backend.vercel.app/api/customOrders"); // fetch all orders
       setOrders(res.data);
     } catch (err) {
       console.error(err);
@@ -20,7 +20,7 @@ const WeaverDashboard = () => {
     const confirm = window.confirm("Are you sure you want to accept this order?");
     if (!confirm) return; // If user clicks "Cancel", stop
     try {
-      await axios.put(`http://localhost:3001/api/customOrders/${orderId}`, {
+      await axios.put(`https://weaver-project-backend.vercel.app/api/customOrders/${orderId}`, {
         status: "Accepted",
       });
       setOrders((prev) =>

@@ -35,7 +35,7 @@ const CustomerDress = () => {
         const storedUser = JSON.parse(localStorage.getItem("user"));
         if (storedUser?.email) {
             axios
-                .get(`http://localhost:3001/api/users?email=${storedUser.email}`)
+                .get(`https://weaver-project-backend.vercel.app/api/users?email=${storedUser.email}`)
                 .then((res) => setUser(res.data))
                 .catch((err) => console.error("Failed to fetch user info:", err));
         }
@@ -77,7 +77,7 @@ const CustomerDress = () => {
         };
 
         try {
-            await axios.post("http://localhost:3001/api/customOrders", order);
+            await axios.post("https://weaver-project-backend.vercel.app/api/customOrders", order);
             setMessage("Order placed successfully!");
             alert("Order placed successfully!");
             setDressType("");
@@ -88,7 +88,7 @@ const CustomerDress = () => {
             setWantDesign(false);
             setPrice(0);
             navigate('/customer');
-            window.location.reload();
+            navigate('/'); 
         } catch (err) {
             console.error(err);
             setMessage("Failed to place order.");

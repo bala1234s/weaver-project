@@ -7,7 +7,7 @@ function Home() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/api/dresses")
+        axios.get("https://weaver-project-backend.vercel.app/api/dresses")
             .then(res => setProducts(res.data))
             .catch(err => console.log(err));
     }, []);
@@ -17,7 +17,8 @@ function Home() {
             {/* Hero Section */}
             <header className="hero">
                 <h1>WeaveConnect</h1>
-                <p>Connecting Customers with Traditional Weavers</p>
+                <p>Connecting Customers with Traditional Weavers and Customize Your Dress</p>
+
                 <div className="hero-buttons">
                     <Link to="/signup">
                         <button className="btn primary">Join as Customer</button>
@@ -40,6 +41,9 @@ function Home() {
                                 <p>{product.description}</p>
                                 <p className="price">₹{product.price}</p>
                             </div>
+                            <Link to="/customer/customDress" className="card-link">
+                                <button className="btn primary">Customize Now</button>
+                            </Link>
                         </div>
                     ))}
                 </div>
